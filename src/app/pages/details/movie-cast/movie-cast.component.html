@@ -1,0 +1,27 @@
+<div class="container-md mt-2 text-white">
+  <h2 class="display-4 text-center">Top cast</h2>
+  <div class="row mt-3">
+    <div class="col-lg-3 col-6" *ngFor="let c of movieCast">
+      <div class="row mt-3 mb-3">
+        <div class="col-sm-5">
+          <img
+            *ngIf="c.profile_path; else noAvatar"
+            class="w-100"
+            src="https://image.tmdb.org/t/p/original/{{ c.profile_path }}"
+          />
+        </div>
+        <ng-template #noAvatar>
+          <img
+            class="w-100"
+            src="https://boazpartners.com/wp-content/uploads/2015/04/blank-avatar-headshot-400x600.jpg"
+          />
+        </ng-template>
+
+        <div class="col-sm-7">
+          <h3>{{ c.original_name }}</h3>
+          <p>{{ c.character }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

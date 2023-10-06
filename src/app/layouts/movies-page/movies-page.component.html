@@ -1,0 +1,14 @@
+<div class="container mx-auto row text-white">
+  <div *ngFor="let m of movies" class="col-md-4 col-sm-6 mb-4">
+    <div [routerLink]="['/movie', m.id]" class="film">
+      <img
+        [title]="m.overview"
+        class="w-100"
+        src="https://image.tmdb.org/t/p/original/{{ m.poster_path }}"
+      />
+      <div class="h6 mt-2">
+        {{ m.title }} ({{ m.release_date | date : "y" }})
+      </div>
+    </div>
+  </div>
+</div>

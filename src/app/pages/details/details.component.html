@@ -1,0 +1,21 @@
+<section class="details">
+  <div *ngIf="movieDetails; else spinner" class="container-lg">
+    <movie-detail
+      [movieDetails]="movieDetails"
+      [videoUrl]="videoUrl"
+    ></movie-detail>
+    <movie-cast [movieCast]="movieCast"></movie-cast>
+  </div>
+
+  <ng-template #spinner
+    ><div class="text-center" style="padding-top: 35vh">
+      <div
+        class="spinner-border text-light mx-auto my-auto"
+        role="status"
+        style="width: 5rem; height: 5rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+</section>

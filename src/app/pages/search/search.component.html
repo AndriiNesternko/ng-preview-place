@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="row mb-3">
+    <div class="col-1"></div>
+    <div class="col-8">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Serch Movie Here ..."
+        name="moviename"
+        ngModel
+        required
+      />
+    </div>
+    <div class="col-2">
+      <button type="submit" class="btn btn-outline-warning btn-md">
+        Search
+      </button>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</form>
+
+<div
+  class="container row mx-auto text-white mt-5"
+  *ngIf="movieResults.length > 0"
+>
+  <div class="col-lg-3 col-md-4 col-6" *ngFor="let movie of movieResults">
+    <div [routerLink]="['/movie', movie.id]" style="cursor: pointer">
+      <div class="mx-auto">
+        <img
+          *ngIf="movie.poster_path; else noAvatar"
+          src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}"
+          class="w-75 mx-auto d-block"
+        />
+        <ng-template #noAvatar>
+          <img
+            class="w-75 mx-auto d-block"
+            src="https://boazpartners.com/wp-content/uploads/2015/04/blank-avatar-headshot-400x600.jpg"
+          />
+        </ng-template>
+      </div>
+      <p class="text-center">{{ movie.title }}</p>
+    </div>
+  </div>
+</div>

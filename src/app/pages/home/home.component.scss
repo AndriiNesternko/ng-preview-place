@@ -1,0 +1,40 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fca311;
+  padding-top: 40px;
+
+  #poster {
+    display: block;
+  }
+  #poster-mobile {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    height: 60vh;
+  }
+
+  @media (max-width: 425px) {
+    padding-top: 60px;
+    height: 80vh;
+    #poster {
+      display: none;
+    }
+    #poster-mobile {
+      width: auto;
+      display: block;
+    }
+  }
+
+  #title {
+    color: #14213d;
+    font-weight: bold;
+    background-color: #e5e5e5;
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 20px;
+  }
+}
