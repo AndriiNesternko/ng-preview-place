@@ -1,182 +1,55 @@
-<div
-  id="carouselExampleControls"
-  class="carousel slide"
-  data-bs-ride="carousel"
->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="cards-wrapper">
-        <div class="card">
-          <div class="image-wrapper">
+<!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8j1phplfUkt-F1EAB3ieH1liY7MD_GvOg3Q&usqp=CAU -->
+
+<div class="container mt-4">
+  <div
+    id="multiple-carousel_{{ id }}"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let posters of postersList; let i = index"
+        [class.active]="i === 0"
+      >
+        <div class="row justify-content-center">
+          <div class="col-3" *ngFor="let poster of posters">
             <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-1-card-1.jpg"
-              alt="..."
+              [routerLink]="['movie', poster.id]"
+              src="https://image.tmdb.org/t/p/original/{{ poster.poster_path }}"
+              class="d-block w-100"
             />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-1-card-2.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-1-card-3.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-2-card-1.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-2-card-2.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-2-card-3.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/bootstrap-multiple-items-carousel-slide-3-card-1.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-3-card-2.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <img
-              src="https://codingyaar.com/wp-content/uploads/multiple-items-carousel-slide-3-card-3.jpg"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    <a
+      class="carousel-control-prev"
+      href="#multiple-carousel_{{ id }}"
+      role="button"
+      data-bs-slide="prev"
+    >
+      <span
+        class="carousel-control-prev-icon"
+        aria-hidden="true"
+        style="background-color: orange; border-radius: 40%"
+      ></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+
+    <a
+      class="carousel-control-next"
+      href="#multiple-carousel_{{ id }}"
+      role="button"
+      data-bs-slide="next"
+    >
+      <span
+        class="carousel-control-next-icon"
+        aria-hidden="true"
+        style="background-color: orange; border-radius: 40%"
+      ></span>
+      <span class="visually-hidden">Next</span>
+    </a>
   </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>

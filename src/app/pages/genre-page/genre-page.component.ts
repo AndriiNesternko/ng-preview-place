@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { genres } from 'src/app/genres';
 import { FilmResult } from 'src/app/interfaces/film';
 import { MovieApiServiceService } from 'src/app/services/movie-api-service.service';
 
 @Component({
   selector: 'app-genre-page',
   templateUrl: './genre-page.component.html',
-  styleUrls: ['./genre-page.component.scss'],
 })
 export class GenrePageComponent implements OnInit {
-  genreId!: number;
+  genreId: number | undefined;
+  isError: boolean = true;
   title: string = '';
-  moviesResult!: FilmResult[];
+  moviesResult: FilmResult[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,19 +19,30 @@ export class GenrePageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // is this okay what i do here??????
+    this.route.queryParams.subscribe((qParam) => {
+      this.title = qParam['genre'];
+    });
+
     this.route.params.subscribe((param) => {
       this.genreId = +param['genreId'];
       this.getMovies();
-      this.title = [...genres].filter(
-        (el) => el['id'] === this.genreId
-      )[0].name;
     });
   }
 
-  getMovies() {
-    this.service.fetchMovies(this.genreId).subscribe((res) => {
-      this.moviesResult = res.results;
+  private getMovies() {
+    if (this.genreId === undefined) {
+      this.isError = true;
+      return;
+    }
+    this.service.fetchMovies(this.genreId).subscribe({
+      next: (res) => {
+        this.moviesResult = res.results;
+        this.isError = false;
+      },
+      error: (err) => {
+        console.log(err);
+        this.isError = true;
+      },
     });
   }
 }

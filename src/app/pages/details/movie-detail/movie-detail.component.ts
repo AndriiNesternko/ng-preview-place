@@ -8,5 +8,4 @@ import { FilmDetail } from 'src/app/interfaces/film-detail';
 export class MovieDetailComponent {
   @Input() movieDetails!: FilmDetail;
   @Input() videoUrl!: string;
-  constructor() {}
 }

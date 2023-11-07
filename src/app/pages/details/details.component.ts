@@ -29,19 +29,22 @@ export class DetailsComponent implements OnInit {
     this.getMovieCast();
   }
 
-  getMovieDetails() {
+  private getMovieDetails() {
     this.service.getMovieDetails(this.movieId).subscribe((res) => {
       this.movieDetails = res;
     });
   }
 
-  getMovieVideo() {
+  private getMovieVideo() {
     this.service.getMovieVideo(this.movieId).subscribe((res) => {
-      if (res.results.length > 0) this.videoUrl = res.results[0].key;
+      if (res.results.length > 0) {
+        this.videoUrl =
+          'https://www.themoviedb.org/video/play?key=' + res.results[0].key;
+      }
     });
   }
 
-  getMovieCast() {
+  private getMovieCast() {
     this.service.getMovieCast(this.movieId).subscribe((res) => {
       this.movieCast = res.cast;
     });

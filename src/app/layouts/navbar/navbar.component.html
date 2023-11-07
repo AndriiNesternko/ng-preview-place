@@ -32,9 +32,12 @@
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let g of genres">
-              <a class="dropdown-item" [routerLink]="['genre', g.id]">{{
-                g.name
-              }}</a>
+              <a
+                class="dropdown-item"
+                [routerLink]="['genre', g.id]"
+                [queryParams]="{ genre: g.name }"
+                >{{ g.name }}</a
+              >
             </li>
           </ul>
         </li>

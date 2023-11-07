@@ -25,6 +25,7 @@
         *ngFor="let g of movieDetails.genres"
         class="btn btn-outline-warning me-2 btn-sm"
         [routerLink]="['/genre', g.id]"
+        [queryParams]="{ genre: g.name }"
         >{{ g.name }}</a
       >
     </div>
@@ -64,11 +65,47 @@
     <a
       *ngIf="videoUrl"
       class="btn btn-warning btn-lg my-5"
-      href="https://www.themoviedb.org/video/play?key={{ videoUrl }}"
+      [href]="videoUrl"
       target="_blank"
     >
       watch trailer</a
     >
+    <!-- 
+    Button trigger modal
+    <button
+      type="button"
+      *ngIf="videoUrl"
+      class="btn btn-warning btn-lg my-5"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      watch trailer
+    </button> -->
+
+    <!-- Modal -->
+    <!-- <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe loading="lazy" [src]="videoUrl | safe"></iframe>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
     <!-- details -->
   </div>

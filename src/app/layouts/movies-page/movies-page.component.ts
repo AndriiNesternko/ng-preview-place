@@ -7,5 +7,5 @@ import { FilmResult } from 'src/app/interfaces/film';
   styleUrls: ['./movies-page.component.scss'],
 })
 export class MoviesPageComponent {
-  @Input() movies!: FilmResult[];
+  @Input() movies: FilmResult[] | undefined;
 }
