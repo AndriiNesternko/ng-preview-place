@@ -7,5 +7,5 @@ import { FilmResult } from 'src/app/interfaces/film';
 })
 export class MultipleCarouselComponent {
   @Input() id!: number;
-  @Input() postersList!: FilmResult[][];
+  @Input() postersList!: FilmResult[];
 }

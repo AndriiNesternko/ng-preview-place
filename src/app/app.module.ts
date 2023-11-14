@@ -18,7 +18,6 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { GenrePageComponent } from './pages/genre-page/genre-page.component';
 import { MoviesPageComponent } from './layouts/movies-page/movies-page.component';
 import { FormsModule } from '@angular/forms';
-import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { SafePipe } from './pipes/safe.pipe';
     MovieDetailComponent,
     GenrePageComponent,
     MoviesPageComponent,
-    SafePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

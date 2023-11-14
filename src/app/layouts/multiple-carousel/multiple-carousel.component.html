@@ -1,25 +1,44 @@
-<!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8j1phplfUkt-F1EAB3ieH1liY7MD_GvOg3Q&usqp=CAU -->
-
 <div class="container mt-4">
   <div
     id="multiple-carousel_{{ id }}"
     class="carousel slide"
     data-bs-ride="carousel"
   >
-    <div class="carousel-inner">
+    <div class="carousel-inner rounded" style="background-color: #fca311">
       <div
-        class="carousel-item"
-        *ngFor="let posters of postersList; let i = index"
+        class="carousel-item py-3 rounded"
+        *ngFor="let poster of postersList; let i = index"
         [class.active]="i === 0"
       >
-        <div class="row justify-content-center">
-          <div class="col-3" *ngFor="let poster of posters">
+        <div class="row mx-0">
+          <div class="col-1"></div>
+          <div
+            class="col-sm-4"
+            [routerLink]="['movie', poster.id]"
+            style="cursor: pointer"
+          >
             <img
-              [routerLink]="['movie', poster.id]"
               src="https://image.tmdb.org/t/p/original/{{ poster.poster_path }}"
-              class="d-block w-100"
+              class="rounded d-block w-100"
             />
           </div>
+          <div
+            class="d-none ml-2 col-6 d-sm-flex flex-column justify-content-around"
+          >
+            <div>
+              <h2 class="display-3">{{ poster.title }}</h2>
+              <div>
+                {{ poster.overview }}
+              </div>
+            </div>
+
+            <a
+              class="btn btn-dark btn-lg mt-4"
+              [routerLink]="['movie', poster.id]"
+              >more</a
+            >
+          </div>
+          <div class="col-1"></div>
         </div>
       </div>
     </div>
@@ -33,7 +52,7 @@
       <span
         class="carousel-control-prev-icon"
         aria-hidden="true"
-        style="background-color: orange; border-radius: 40%"
+        style="background-color: #14213d; border-radius: 40%"
       ></span>
       <span class="visually-hidden">Previous</span>
     </a>
@@ -47,7 +66,7 @@
       <span
         class="carousel-control-next-icon"
         aria-hidden="true"
-        style="background-color: orange; border-radius: 40%"
+        style="background-color: #14213d; border-radius: 40%"
       ></span>
       <span class="visually-hidden">Next</span>
     </a>

@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
 
   bannerList: BannerResult[] = [];
 
-  nowPlayingPosters: FilmResult[][] = [];
-  upcomingPosters: FilmResult[][] = [];
+  nowPlayingPosters: FilmResult[] = [];
+  upcomingPosters: FilmResult[] = [];
 
   constructor(private service: MovieApiServiceService) {}
 
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   private getNowPlayingData() {
     this.service.getNowPlayingApiData().subscribe({
       next: (res) => {
-        this.nowPlayingPosters = this.getPosters(res.results);
+        this.nowPlayingPosters = res.results;
         console.log(this.nowPlayingPosters);
       },
       error: (err) => console.log(err),
@@ -46,20 +46,20 @@ export class HomeComponent implements OnInit {
   private getUpcomingData() {
     this.service.getUpcomingApiData().subscribe({
       next: (res) => {
-        this.upcomingPosters = this.getPosters(res.results);
+        this.upcomingPosters = res.results;
         console.log(this.upcomingPosters);
       },
       error: (err) => console.log(err),
     });
   }
 
-  private getPosters(data: FilmResult[]) {
-    const result: FilmResult[][] = [];
+  // private getPosters(data: FilmResult[]) {
+  //   const result: FilmResult[][] = [];
 
-    for (let i = 0; i < data.length; i += 4) {
-      result.push([data[i], data[i + 1], data[i + 2], data[i + 3]]);
-    }
+  //   for (let i = 0; i < data.length; i += 4) {
+  //     result.push([data[i], data[i + 1], data[i + 2], data[i + 3]]);
+  //   }
 
-    return result;
-  }
+  //   return result;
+  // }
 }
