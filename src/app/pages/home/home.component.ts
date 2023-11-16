@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
     this.service.getNowPlayingApiData().subscribe({
       next: (res) => {
         this.nowPlayingPosters = res.results;
-        console.log(this.nowPlayingPosters);
       },
       error: (err) => console.log(err),
     });
@@ -47,19 +46,8 @@ export class HomeComponent implements OnInit {
     this.service.getUpcomingApiData().subscribe({
       next: (res) => {
         this.upcomingPosters = res.results;
-        console.log(this.upcomingPosters);
       },
       error: (err) => console.log(err),
     });
   }
-
-  // private getPosters(data: FilmResult[]) {
-  //   const result: FilmResult[][] = [];
-
-  //   for (let i = 0; i < data.length; i += 4) {
-  //     result.push([data[i], data[i + 1], data[i + 2], data[i + 3]]);
-  //   }
-
-  //   return result;
-  // }
 }
